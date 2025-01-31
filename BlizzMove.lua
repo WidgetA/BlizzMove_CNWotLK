@@ -51,6 +51,16 @@ BlizzMove.CurrentMouseoverFrames = {};
 local MAX_SCALE = 2.5;
 local MIN_SCALE = 0.3; -- steps are in 0.1 increments, and we'd like to stay above 0.25
 
+
+local NumAddOnsFunction
+if GetCVar('portal') == 'CN' then
+    NumAddOnsFunction = GetNumAddOns
+    AddOnInfoFunction = GetAddOnInfo
+else
+    NumAddOnsFunction = C_AddOns.GetNumAddOns
+    AddOnInfoFunction = C_AddOns.GetAddOnInfo
+end
+
 ------------------------------------------------------------------------------------------------------
 --- Debug Functions
 ------------------------------------------------------------------------------------------------------
@@ -1333,8 +1343,8 @@ do
             end
         end);
 
-        for i = 1, C_AddOns.GetNumAddOns() do
-            local addOnName = C_AddOns.GetAddOnInfo(i);
+        for i = 1, NumAddOnsFunction() do
+            local addOnName = AddOnInfoFunction(i);
             if IsAddOnLoaded(addOnName) then
                 self:CheckCompatibility(addOnName);
             end
