@@ -13,3 +13,9 @@
 
 ### 2025/2/2
 - Update to BlizzMove 3.6.11
+
+### 2025/2/2
+- Update to BlizzMove 3.6.11
+
+### 2025/2/22
+- Update to BlizzMove 3.6.12
